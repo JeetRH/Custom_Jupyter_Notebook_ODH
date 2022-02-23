@@ -1,0 +1,26 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: honda-notebook
+  namespace: honda
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'honda-notebook:latest'
+  source:
+    git:
+      ref: main
+      uri: 'https://github.com/JeetRH/JupyterH.git'
+    type: Git
+    #contextDir: notebook
+  strategy:
+    type: Docker
+    dockerStrategy:
+      from:
+        kind: ImageStreamTag
+        name: 's2i-generic-data-science-notebook:v0.0.5'
+  triggers:
+    - type: ImageChange
+      imageChange: {}
+    - type: ConfigChange
