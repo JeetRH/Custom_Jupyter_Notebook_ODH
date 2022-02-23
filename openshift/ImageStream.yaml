@@ -1,0 +1,19 @@
+piVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: honda-notebook
+  namespace: honda
+  annotations:
+    opendatahub.io/notebook-image-name: Honda Notebook
+  labels:
+    component.opendatahub.io/name: jupyterhub
+    opendatahub.io/component: 'true'
+    opendatahub.io/notebook-image: 'true'
+spec:
+  tags:
+  - name: v0.1
+    from:
+      kind: ImageStreamTag
+      name: latest
+  lookupPolicy:
+    local: false
