@@ -1,13 +1,13 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: honda-notebook
-  namespace: honda
+  name: custom-notebook
+  namespace: seldon-demo
 spec:
   output:
     to:
       kind: ImageStreamTag
-      name: 'honda-notebook:latest'
+      name: 'custom-notebook:latest'
   source:
     git:
       ref: main
@@ -16,10 +16,10 @@ spec:
     #contextDir: notebook
   strategy:
     type: Docker
-    dockerStrategy:
-      from:
-        kind: ImageStreamTag
-        name: 's2i-generic-data-science-notebook:v0.0.5'
+#     dockerStrategy:
+#       from:
+#         kind: ImageStreamTag
+#         name: 's2i-generic-data-science-notebook:v0.0.5'
   triggers:
     - type: ImageChange
       imageChange: {}
