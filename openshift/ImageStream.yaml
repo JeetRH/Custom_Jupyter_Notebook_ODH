@@ -1,10 +1,10 @@
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
-  name: honda-notebook
-  namespace: honda
+  name: custom-notebook
+  namespace: custom
   annotations:
-    opendatahub.io/notebook-image-name: Honda Notebook
+    opendatahub.io/notebook-image-name: Custom Notebook
   labels:
     component.opendatahub.io/name: jupyterhub
     opendatahub.io/component: 'true'
