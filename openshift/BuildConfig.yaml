@@ -2,7 +2,7 @@ apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
   name: custom-notebook
-  namespace: seldon-demo
+  namespace: custom-notebook-demo
 spec:
   output:
     to:
