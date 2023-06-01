@@ -13,13 +13,8 @@ spec:
       ref: main
       uri: 'https://github.com/JeetRH/JupyterH.git'
     type: Git
-    #contextDir: notebook
   strategy:
     type: Docker
-#     dockerStrategy:
-#       from:
-#         kind: ImageStreamTag
-#         name: 's2i-generic-data-science-notebook:v0.0.5'
   triggers:
     - type: ImageChange
       imageChange: {}
