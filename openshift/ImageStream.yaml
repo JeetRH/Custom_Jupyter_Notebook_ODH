@@ -2,7 +2,7 @@ apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
   name: custom-notebook
-  namespace: custom
+  namespace: custom-notebook-demo
   annotations:
     opendatahub.io/notebook-image-name: Custom Notebook
   labels:
