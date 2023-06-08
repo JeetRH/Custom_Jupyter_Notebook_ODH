@@ -3,7 +3,7 @@ apiVersion: image.openshift.io/v1
 metadata:
   annotations:
     opendatahub.io/notebook-image-desc: Custom notebook tutorial
-    opendatahub.io/notebook-image-name: Custom Notebook 2
+    opendatahub.io/notebook-image-name: Custom Notebook
     opendatahub.io/notebook-image-url: >-
       image-registry.openshift-image-registry.svc:5000/custom-notebook-demo/custom-notebook
   name: custom-jupyter-notebook
