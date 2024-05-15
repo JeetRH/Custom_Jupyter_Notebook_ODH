@@ -10,6 +10,8 @@ WORKDIR /opt/app-root/bin/
 
 COPY --chown=1001:0 os-ide/os-packages.txt ./os-ide/os-packages.txt
 
+ENV PATH=/opt/app-root/bin/:$PATH
+
 RUN echo "tsflags=nodocs" | tee -a /etc/yum.conf && \
     yum -y update && \
     yum install -y yum-utils && \
@@ -76,7 +78,8 @@ RUN echo "Installing softwares and packages" && \
     rm /opt/app-root/share/jupyter/metadata/runtime-images/*.json && \
     # Fix permissions to support pip in OpenShift environments \
     chmod -R g+w /opt/app-root/lib/python3.11/site-packages && \
-    fix-permissions /opt/app-root -P
+    fix-permissions /opt/app-root -P && \
+    chmod +x /opt/app-root/bin/start-notebook.sh
 
 # Copy Elyra runtime-images definitions and set the version
 COPY --chown=1001:0 runtime-images/ /opt/app-root/share/jupyter/metadata/runtime-images/
